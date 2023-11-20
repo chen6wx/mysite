@@ -1,0 +1,25 @@
+<form hx-post="{% url 'fen:create-item' %}" 
+    hx-target="#item-list" 
+    hx-swap="beforeend" 
+    hx-on= "htmx:afterRequest:this.remove()" 
+    hx-trigger="click from:#calculate"
+>
+    <div class="row">
+        <div class="col-4 col-md-5">
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+            {{ form.name }}
+        </div>
+        <div class="col-4 col-md-2">
+            <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+            {{ form.price }}
+        </div>
+        <div class="col-4 col-md-1">
+            <label for="{{ form.num_split.id_for_label }}">{{ form.num_split.label }}</label>
+            {{ form.num_split }}
+        </div>
+        <div class="col-3 align-self-end">
+            <button type="button" class="btn btn-danger"
+                hx-on= "click:this.closest('form').remove()">Delete</button>
+        </div>
+    </div>
+</form>

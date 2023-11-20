@@ -1,0 +1,27 @@
+{% extends "fen/base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4 text-primary">Add Items</h1>
+
+<div id="item-forms">
+    {% include 'partials/item_form.html' %}
+</div>
+
+
+<div class="my-4">
+    <button type="button" class="btn btn-primary me-2"
+    hx-get="{% url 'fen:create-item' %}"
+    hx-target="#item-forms"
+    hx-swap="beforeend">+ Add Item</button>
+
+    <button type="button" class="btn btn-success" id="calculate">Calculate</button>
+</div>
+
+<ul id="item-list">
+    {% for item in items %}
+        {% include 'partials/item.html'%}
+    {% endfor %}
+</ul>
+
+{% endblock %}

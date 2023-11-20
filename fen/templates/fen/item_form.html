@@ -1,0 +1,9 @@
+<div hx-target="this" hx-swap="outerHTML" hx-trigger="click from:#calculate">
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+
+</div>
+<div>
